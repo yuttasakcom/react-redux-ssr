@@ -1,4 +1,9 @@
 import express from 'express'
+import React from 'react'
+
+import { renderToString } from 'react-dom/server'
+
+import App from '../client/App'
 
 const app = express()
 
@@ -6,6 +11,7 @@ app.set('port', process.env.PORT || '8080')
 
 app.use(express.static('public'))
 app.get('/', (req, res) => {
+  const content = renderToString(<App />)
   const html = `
     <!DOCTYPE html>
     <html lang="th">
@@ -16,7 +22,7 @@ app.get('/', (req, res) => {
         <title>react-redux-ssr</title>
     </header>
     <body>
-        <div id="app"></div>
+        <div id="app">${content}</div>
         <script src="bundle.js"></script>
     </body>
     </html>
