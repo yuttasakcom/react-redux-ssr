@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
     </body>
     </html>
   `
-  res.send(html)
+  res.end(html)
 })
 
 app.listen(app.get('port'), () => {

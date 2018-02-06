@@ -82,8 +82,8 @@ app.set('port', process.env.PORT || '8080');
 
 app.use(_express2.default.static('public'));
 app.get('/', function (req, res) {
-  var html = '\n    <html>\n    <header></header>\n    <body>\n        <div id="app"></div>\n        <script src="bundle.js"></script>\n    </body>\n    </html>\n  ';
-  res.send(html);
+  var html = '\n    <!DOCTYPE html>\n    <html lang="th">\n    <header>\n        <meta charset="utf-8">\n        <meta name="viewport" content="width=device-width, initial-scale=1.0">\n        <meta http-equiv="X-UA-Compatible" content="ie=edge">\n        <title>react-redux-ssr</title>\n    </header>\n    <body>\n        <div id="app"></div>\n        <script src="bundle.js"></script>\n    </body>\n    </html>\n  ';
+  res.end(html);
 });
 
 app.listen(app.get('port'), function () {
